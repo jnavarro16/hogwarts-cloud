@@ -47,7 +47,7 @@ public class EstudianteService {
     @Transactional
     public EstudianteDTO crearConMascota(EstudianteCreateDTO dto) {
 
-        Casa casa = casaRepo.findById(dto.getCasaId())
+        Casa casa = casaRepo.findById(Long.valueOf(dto.getCasaId()))
                 .orElseThrow(() -> new IllegalArgumentException("El ID de la Casa no existe: " + dto.getCasaId()));
 
         Estudiante estudiante = new Estudiante();

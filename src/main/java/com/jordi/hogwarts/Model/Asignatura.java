@@ -15,7 +15,7 @@ public class Asignatura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_asignatura")
-    private Integer id;
+    private Long id;
 
     private String nombre;
     private String aula;

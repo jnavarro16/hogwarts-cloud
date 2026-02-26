@@ -19,7 +19,7 @@ public class Casa {
     @Column(
             name = "id_casa"
     )
-    private Integer id;
+    private Long id;
     private String nombre;
     private String fundador;
     private String fantasma;

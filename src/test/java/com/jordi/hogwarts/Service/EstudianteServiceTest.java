@@ -29,7 +29,7 @@ public class EstudianteServiceTest
     @BeforeEach
     void setUp() {
         harryPotter = new Estudiante();
-        harryPotter.setId(1);
+        harryPotter.setId(1L);
         harryPotter.setNombre("Harry");
         harryPotter.setApellido("Potter");
 
