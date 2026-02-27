@@ -35,7 +35,7 @@ public class EstudianteServiceTest
 
         //mascota
         Mascota hedwig = new Mascota();
-        hedwig.setId(1);
+        hedwig.setId(1L);
         hedwig.setNombre("Hedwig");
         hedwig.setEspecie("Lechuza");
         hedwig.setEstudiante(harryPotter);

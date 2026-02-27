@@ -2,7 +2,9 @@ package com.jordi.hogwarts.Mapper;
 
 import com.jordi.hogwarts.DTO.AsignaturaCalificacionDTO;
 import com.jordi.hogwarts.DTO.EstudianteDTO;
+import com.jordi.hogwarts.DTO.MascotaDTO;
 import com.jordi.hogwarts.Model.Estudiante;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -32,13 +34,20 @@ public class EstudianteMapper
                         ))
                         .toList();
 
+        MascotaDTO mascotaDto = null;
+        try {
+            mascotaDto = mascotaMapper.toDTO(es.getMascota());
+        } catch (EntityNotFoundException ex) {
+            mascotaDto = null;
+        }
+
         return new EstudianteDTO(
-                es.getId() == null ? null : es.getId().longValue(),
+                es.getId() == null ? 0L : es.getId(),
                 nombreCompleto,
                 es.getAnyoCurso(),
                 es.getFechaNacimiento(),
                 casa,
-                mascotaMapper.toDTO(es.getMascota()),
+                mascotaDto,
                 asignaturas
         );
     }
