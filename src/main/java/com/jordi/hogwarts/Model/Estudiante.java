@@ -38,7 +38,8 @@ public class Estudiante {
     @JsonIgnoreProperties({"estudiantes", "jefe"})
     private Casa casa;
 
-    @OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "id_estudiante", referencedColumnName = "id_estudiante")
     @NotFound(action = NotFoundAction.IGNORE)
     @JsonIgnoreProperties({"estudiante"})
     private Mascota mascota;
