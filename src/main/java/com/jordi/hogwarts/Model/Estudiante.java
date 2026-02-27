@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.SoftDelete;
 
 import java.time.LocalDate;
@@ -37,6 +39,7 @@ public class Estudiante {
     private Casa casa;
 
     @OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
+    @NotFound(action = NotFoundAction.IGNORE)
     @JsonIgnoreProperties({"estudiante"})
     private Mascota mascota;
 

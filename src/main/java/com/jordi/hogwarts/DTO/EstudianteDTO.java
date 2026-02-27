@@ -9,7 +9,7 @@ import java.util.List;
 
 //clase para la respuesta de API
 public record EstudianteDTO(
-        long id,
+        Long id,
         String nombre, //y apellido
 
         //validaciones
